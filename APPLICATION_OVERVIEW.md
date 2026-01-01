@@ -1,8 +1,8 @@
-# AICxAlphaWave Application Overview
+# Multi-Source Insights Dashboard - Application Overview
 
 ## What This Application Is
 
-AICxAlphaWave is a **Reddit comment analysis platform** that scrapes, processes, and visualizes health-related discussions from Reddit. It uses AI/ML to extract insights about user pain points, emotions, failed solutions, desires, metaphors, practitioner references, triggers, and questions from natural language text.
+Multi-Source Insights Dashboard is a **Reddit comment analysis platform** that scrapes, processes, and visualizes health-related discussions from Reddit. It uses AI/ML to extract insights about user pain points, emotions, failed solutions, desires, metaphors, practitioner references, triggers, and questions from natural language text.
 
 The platform is designed for **market research and consumer insights** - understanding what real people are saying about health topics, what problems they face, what solutions have failed them, and what they truly want.
 

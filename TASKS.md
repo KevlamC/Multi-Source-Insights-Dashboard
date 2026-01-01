@@ -1,4 +1,4 @@
-# AICxAlphaWave - Complete Task List
+# Multi-Source Insights Dashboard - Complete Task List
 
 ## 🔴 CRITICAL BUGS (Fix First)
 

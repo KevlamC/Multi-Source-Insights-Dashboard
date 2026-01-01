@@ -1,1 +1,1 @@
-# Contribution Guidelines for the AIC-AlphaWave Project
+# Contributing to Multi-Source Insights Dashboard
