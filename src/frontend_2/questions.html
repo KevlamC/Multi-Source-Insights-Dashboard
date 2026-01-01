@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reddit Scraper</title>
+  <link rel="stylesheet" href="questions.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button id="mobileMenuBtn" class="mobile-menu-btn">
+          <span class="hamburger"></span>
+        </button>
+        <a href="#" class="nav-link">Insights</a>
+      </div>
+      
+      <div class="nav-center">
+        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <h1 class="logo">Questions</h1>
+      </div>
+      
+      <div class="nav-right">
+        <button id="settingsBtn" class="settings-btn">
+          <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <div id="settingsDropdown" class="settings-dropdown">
+          <a href="#" id="featureDescriptions">Feature Descriptions</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-layout">
+    <!-- Main Sidebar -->
+    <aside id="mainSidebar" class="sidebar main-sidebar">
+      <div class="sidebar-content">
+        <button class="sidebar-item active" data-section="Reddit Scraper">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <span class="sidebar-text">Reddit Scraper</span>
+        </button>
+
+        <button class="sidebar-item" data-section="Ask me Anything">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="sidebar-text">Ask me Anything</span>
+        </button>
+
+        <button class="sidebar-item" data-section="Insights">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+          <span class="sidebar-text">Insights</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Insights Sidebar -->
+    <aside id="insightsSidebar" class="sidebar insights-sidebar">
+  <div class="sidebar-header">
+    <h3 class="sidebar-title">Insights</h3>
+    <button id="toggleInsightsSidebar" class="toggle-sidebar-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15,18 9,12 15,6"></polyline>
+      </svg>
+    </button>
+  </div>
+  <div class="sidebar-content">
+    <button class="sidebar-item" onclick="window.location.href='painpoints.html'">
+      Pain Points
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='desire_wishes.html'">
+      Desires/Wishes
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='practitioner.html'">
+      Practitioner References
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='frustrationpoints.html'">
+      Frustration Points
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='metaphor.html'">
+      Metaphor Mentions
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='Triggersthatcausedaction.html'">
+      Triggers that caused Action
+    </button>
+    <button class="sidebar-item active" onclick="window.location.href='questions.html'">
+      FAQs
+    </button>
+  </div>
+</aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search and Filter Section -->
+      <section class="search-section">
+        <div class="search-header">
+          <h2 class="section-title">Search & Filter Controls</h2>
+        </div>
+        
+        <div class="search-grid">
+          <!-- Search Keywords Row -->
+          <div class="search-row">
+            <div class="search-input-group">
+              <label for="keywordSearch">Search Keywords</label>
+              <input id="keywordSearch" type="text" placeholder="e.g. better sleep, less anxiety" />
+            </div>
+            <div class="search-buttons">
+              <button id="runSearchBtn" class="search-btn primary">Run Search</button>
+              <button id="clearSearchBtn" class="search-btn secondary">Clear</button>
+            </div>
+          </div>
+
+          <!-- Filter by Subreddits Row -->
+          <div class="filter-row">
+            <div class="filter-group full-width">
+              <label>Filter by Subreddits</label>
+              <div class="filter-buttons" id="subredditButtons">
+                <button class="filter-btn active" data-subreddit="all">All</button>
+                <button class="filter-btn" data-subreddit="health">r/health</button>
+                <button class="filter-btn" data-subreddit="mentalhealth">r/mentalhealth</button>
+                <button class="filter-btn" data-subreddit="selfimprovement">r/selfimprovement</button>
+                <button class="filter-btn" data-subreddit="wellness">r/wellness</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter by Topics Row -->
+          <div class="filter-row">
+            <div class="filter-group full-width">
+              <label>Filter by Topics</label>
+              <div class="filter-buttons" id="topicButtons">
+                <button class="filter-btn active" data-topic="all">All</button>
+                <button class="filter-btn" data-topic="sleep">Sleep</button>
+                <button class="filter-btn" data-topic="anxiety">Anxiety</button>
+                <button class="filter-btn" data-topic="discipline">Discipline</button>
+                <button class="filter-btn" data-topic="connections">Connections</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sentiment Intensity Row -->
+          <div class="filter-row">
+            <div class="filter-group sentiment-group">
+              <label>Sentiment Intensity</label>
+              <div class="sentiment-controls">
+                <div class="emotion-buttons" id="emotionButtons">
+                  <button class="emotion-btn active" data-emotion="all">😐 All</button>
+                  <button class="emotion-btn" data-emotion="sad">😢 Sad</button>
+                  <button class="emotion-btn" data-emotion="frustrated">😤 Frustrated</button>
+                  <button class="emotion-btn" data-emotion="hopeful">😊 Hopeful</button>
+                  <button class="emotion-btn" data-emotion="happy">😄 Happy</button>
+                </div>
+                <div class="intensity-slider">
+                  <div class="slider-container">
+                    <input type="range" id="intensitySlider" min="0" max="100" value="50" class="slider">
+                    <div class="slider-value" id="sliderValue">50%</div>
+                    <div class="slider-labels">
+                      <span>Weak</span>
+                      <span>Mild</span>
+                      <span>High</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="filter-group time-group">
+              <label for="timeFilter">Filter for Time</label>
+              <select id="timeFilter" class="time-select">
+                <option value="all">All Time</option>
+                <option value="past_day">Past Day</option>
+                <option value="past_week">Past Week</option>
+                <option value="past_month">Past Month</option>
+                <option value="past_year">Past Year</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Section -->
+      <section class="data-section">
+        <div class="data-header">
+          <h3 class="data-title">Data</h3>
+          <button id="exportDataBtn" class="export-btn">Export</button>
+        </div>
+        
+        <div class="pagination-info">
+          <span>Showing <span id="currentRange">1-7</span> of <span id="totalComments">8198</span> comments</span>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table" id="dataTable">
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th class="sortable" data-sort="timestamp">
+                  Timestamp
+                  <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                  </svg>
+                </th>
+                <th>Subreddit</th>
+                <th>Text</th>
+                <th class="sortable" data-sort="upvotes">
+                  Upvotes
+                  <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                  </svg>
+                </th>
+                <th>Post</th>
+                <th>Topic</th>
+                <th class="sortable" data-sort="intensity">
+                  Sentiment Intensity
+                  <svg class="sort-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                  </svg>
+                </th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="pagination-controls">
+          <button id="prevPage" class="pagination-btn">‹</button>
+          <div class="pagination-numbers" id="paginationNumbers">
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <span class="pagination-dots">...</span>
+            <button class="pagination-btn">1171</button>
+          </div>
+          <button id="nextPage" class="pagination-btn">›</button>
+        </div>
+      </section>
+
+      <!-- Topic Cluster Section -->
+      <section class="topic-cluster-section">
+        <div class="topic-cluster-header">
+          <h3 class="topic-cluster-title">Topic cluster</h3>
+          <button id="exportTopicClusterBtn" class="export-btn">Export</button>
+        </div>
+        <div class="topic-cluster-description">
+          List of the topics being discussed and their share of the total comments
+        </div>
+        <div class="topic-cluster-grid" id="topicClusterGrid">
+          <!-- Topic cluster items will be populated by JavaScript -->
+        </div>
+        <div class="sentiment-analysis">
+          <div class="sentiment-description">Sentiment Analysis - How common was each theme</div>
+          <div class="sentiment-items" id="sentimentItems">
+            <!-- Dynamic sentiment analysis will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="faq-header">
+          <h3 class="faq-title">Frequently Asked Questions</h3>
+          <div class="faq-buttons">
+            <button id="generateFaqBtn" class="export-btn">Generate FAQ</button>
+            <button id="bookmarkFaqBtn" class="export-btn">Bookmarks</button>
+          </div>
+        </div>
+        <div class="faq-table-container">
+          <table class="faq-table" id="faqTable">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Bookmark</th>
+              </tr>
+            </thead>
+            <tbody id="faqTableBody">
+              <!-- FAQ will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Comment Detail Sidebar -->
+    <aside id="commentSidebar" class="comment-sidebar">
+      <div class="comment-sidebar-header">
+        <h3 class="comment-sidebar-title">Comment Details</h3>
+        <button id="closeCommentSidebar" class="close-sidebar-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="commentSidebarContent" class="comment-sidebar-content">
+        <!-- Comment details will be populated by JavaScript -->
+      </div>
+    </aside>
+  </div>
+
+  <script src="questions.js"></script>
+</body>
+</html>

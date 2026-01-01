@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Practitioner References</title>
+  <link rel="stylesheet" href="practitioner.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button id="mobileMenuBtn" class="mobile-menu-btn">
+          <span class="hamburger"></span>
+        </button>
+        <a href="#" class="nav-link">Insights</a>
+      </div>
+      
+      <div class="nav-center">
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        </svg>
+        <h1 class="logo">Practitioner References</h1>
+      </div>
+      
+      <div class="nav-right">
+        <button id="settingsBtn" class="settings-btn">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span class="settings-text">Settings</span>
+        </button>
+        <div id="settingsDropdown" class="settings-dropdown">
+          <div class="dropdown-section">
+            <h4>View Options</h4>
+            <a href="#" id="featureDescriptions">Feature Descriptions</a>
+            <a href="#" id="exportData">Export Data</a>
+          </div>
+          <div class="dropdown-section">
+            <h4>Display</h4>
+            <a href="#" id="toggleTheme">Toggle Theme</a>
+            <a href="#" id="resetFilters">Reset All Filters</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-layout">
+    <!-- Main Sidebar -->
+    <aside id="mainSidebar" class="sidebar main-sidebar">
+      <div class="sidebar-content">
+        <button class="sidebar-item" data-section="Reddit Scraper">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <span class="sidebar-text">Reddit Scraper</span>
+        </button>
+
+        <button class="sidebar-item" data-section="Ask me Anything">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="sidebar-text">Ask me Anything</span>
+        </button>
+
+        <button class="sidebar-item active" data-section="Insights">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+          <span class="sidebar-text">Insights</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Insights Sidebar -->
+    <aside id="insightsSidebar" class="sidebar insights-sidebar">
+  <div class="sidebar-header">
+    <h3 class="sidebar-title">Insights</h3>
+    <button id="toggleInsightsSidebar" class="toggle-sidebar-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15,18 9,12 15,6"></polyline>
+      </svg>
+    </button>
+  </div>
+  <div class="sidebar-content">
+    <button class="sidebar-item" onclick="window.location.href='painpoints.html'">
+      Pain Points
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='desire_wishes.html'">
+      Desires/Wishes
+    </button>
+    <button class="sidebar-item active" onclick="window.location.href='practitioner.html'">
+      Practitioner References
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='frustrationpoints.html'">
+      Frustration Points
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='metaphor.html'">
+      Metaphor Mentions
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='Triggersthatcausedaction.html'">
+      Triggers that caused Action
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='questions.html'">
+      FAQs
+    </button>
+  </div>
+</aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search and Filter Section -->
+      <section class="search-section">
+        <div class="search-header">
+          <h2 class="section-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            Search & Filter Controls
+          </h2>
+        </div>
+        
+        <div class="search-grid">
+          <div class="input-row">
+            <div class="input-group keyword-search">
+              <label for="keywordSearch">Search Keywords</label>
+              <input id="keywordSearch" type="text" placeholder="e.g. chronic pain, back pain" />
+            </div>
+            <div class="button-group">
+              <button id="runKeywordSearchBtn" class="action-btn primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21 5,3"></polygon>
+                </svg>
+                Run Search
+              </button>
+              <button id="clearKeywordSearchBtn" class="action-btn secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="1,4 1,10 7,10"></polyline>
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+                Clear
+              </button>
+            </div>
+          </div>
+          
+          <div class="filter-row">
+            <div class="filter-group">
+              <label for="confidenceInput">Confidence</label>
+              <input id="confidenceInput" type="text" placeholder="e.g. >= 0.3" />
+            </div>
+            
+            <div class="filter-group">
+              <label for="emotionSelect">Comments by Emotion</label>
+              <select id="emotionSelect" class="filter-select">
+                <option value="all">All Emotions</option>
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😢 Sad</option>
+                <option value="frustrated">😤 Frustrated</option>
+                <option value="neutral">😐 Neutral</option>
+                <option value="positive">😊 Positive</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="marketing-value-row">
+            <div class="filter-group">
+              <label for="marketingValueSlider">Marketing Value</label>
+              <div class="marketing-value-slider">
+                <div class="slider-labels">
+                  <span>Low</span>
+                  <span>Medium</span>
+                  <span>High</span>
+                </div>
+                <input type="range" id="marketingValueSlider" min="0" max="100" value="50" class="range-slider">
+                <div class="slider-value" id="marketingValueDisplay">Medium</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="context-type-row">
+            <div class="filter-group">
+              <label>Context Type</label>
+              <div class="context-type-buttons">
+                <button class="context-btn active" data-context="recommendation">Recommendation</button>
+                <button class="context-btn active" data-context="experience">Experience</button>
+                <button class="context-btn active" data-context="question">Question</button>
+                <button class="context-btn active" data-context="neutral">Neutral</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-filter-row">
+            <div class="filter-group">
+              <label>Advanced Filters</label>
+              <div class="filter-dropdown-container">
+                <button id="filterDropdownBtn" class="filter-dropdown-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46 22,3"></polygon>
+                  </svg>
+                  Filter by
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="dropdown-arrow">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                  </svg>
+                </button>
+                <div id="filterDropdown" class="filter-dropdown">
+                  <div class="filter-section">
+                    <h4>Subreddit</h4>
+                    <div class="filter-options" id="subredditFilters">
+                      <label><input type="checkbox" value="all" checked> All</label>
+                      <label><input type="checkbox" value="health"> r/health</label>
+                      <label><input type="checkbox" value="chronicpain"> r/chronicpain</label>
+                      <label><input type="checkbox" value="wellness"> r/wellness</label>
+                    </div>
+                  </div>
+                  
+                  <div class="filter-section">
+                    <h4>Practitioner Type</h4>
+                    <div class="filter-options" id="categoryFilters">
+                      <label><input type="checkbox" value="all" checked> All</label>
+                      <label><input type="checkbox" value="chiropractor"> Chiropractor</label>
+                      <label><input type="checkbox" value="physical_therapist"> Physical Therapist</label>
+                      <label><input type="checkbox" value="massage_therapist"> Massage Therapist</label>
+                      <label><input type="checkbox" value="acupuncturist"> Acupuncturist </label>
+                      <label><input type="checkbox" value="osteopath"> Osteopath </label>
+                      <label><input type="checkbox" value="physician"> Physician </label>
+                      <label><input type="checkbox" value="wellness_practitioner"> Wellness Practitioner </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Section -->
+      <section class="data-section">
+        <div class="data-header">
+          <h3 class="data-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Practitioner References Data
+          </h3>
+          <div class="data-actions">
+            <div class="data-stats" id="dataStats">
+              Showing <span id="visibleCount">12</span> of <span id="totalCount">12</span> comments
+            </div>
+            <button id="askInChatBtn" class="action-btn primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Ask in chat
+            </button>
+            <button id="downloadDataBtn" class="action-btn primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Data
+            </button>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table" id="dataTable">
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th>Subreddit</th>
+                <th>Comment</th>
+                <th>Votes</th>
+                <th>Emotion</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="pagination-container" id="paginationContainer">
+          <button id="prevPageBtn" class="pagination-btn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <div id="pageNumbers" class="page-numbers">
+            <!-- Page numbers will be generated here -->
+          </div>
+          <button id="nextPageBtn" class="pagination-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+          <div class="pagination-info" id="paginationInfo">
+            Page 1 of 1
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Visualization Section -->
+      <section class="visualization-section">
+        <div class="section-header">
+          <h3 class="section-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3v18h18"></path>
+              <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+            </svg>
+            Data Visualization
+          </h3>
+          <p class="section-description">Visual insights from the current dataset</p>
+        </div>
+        
+        <div class="chart-toggle-container">
+          <div class="chart-toggle">
+            <button class="chart-toggle-btn active" data-chart="time">References Over Time</button>
+            <button class="chart-toggle-btn" data-chart="marketing">Marketing Value Distribution</button>
+          </div>
+        </div>
+        
+        <div class="chart-container">
+          <div class="chart" id="timeChartContainer">
+            <h4>References Over Time</h4>
+            <canvas id="timeChart" width="400" height="200"></canvas>
+          </div>
+          <div class="chart hidden" id="marketingChartContainer">
+            <h4>Marketing Value Distribution</h4>
+            <canvas id="marketingChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Create Headlines Section -->
+      <section class="create-headlines-section">
+        <div class="section-header">
+          <h3 class="section-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2z"></path>
+              <path d="M12 2v10"></path>
+              <path d="M12 2l4 4"></path>
+              <path d="M12 2l-4 4"></path>
+            </svg>
+            Generate Headlines
+          </h3>
+          <p class="section-description">Create compelling headlines based on the current data insights</p>
+        </div>
+        
+        <div class="create-headlines-controls">
+          <button id="createHeadlinesBtn" class="action-btn primary large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2z"></path>
+              <path d="M12 2v10"></path>
+              <path d="M12 2l4 4"></path>
+              <path d="M12 2l-4 4"></path>
+            </svg>
+            Create Headlines
+          </button>
+        </div>
+      </section>
+
+      <!-- Headlines Results Section -->
+      <section id="headlinesResultsSection" class="headlines-results-section" style="display: none;">
+        <div class="section-header">
+          <h3 class="section-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14,2 14,8 20,8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10,9 9,9 8,9"></polyline>
+            </svg>
+            Generated Headlines
+          </h3>
+          <p class="section-description">Headlines generated from your practitioner references data</p>
+        </div>
+        
+        <div class="headlines-grid">
+          <div class="headline-card">
+            <div class="headline-number">1</div>
+            <div class="headline-content">
+              <h4 id="headlineTitle1" class="headline-title">Loading...</h4>
+              <p class="headline-description">Generated based on current data analysis</p>
+            </div>
+          </div>
+          
+          <div class="headline-card">
+            <div class="headline-number">2</div>
+            <div class="headline-content">
+              <h4 id="headlineTitle2" class="headline-title">Loading...</h4>
+              <p class="headline-description">Generated based on current data analysis</p>
+            </div>
+          </div>
+          
+          <div class="headline-card">
+            <div class="headline-number">3</div>
+            <div class="headline-content">
+              <h4 id="headlineTitle3" class="headline-title">Loading...</h4>
+              <p class="headline-description">Generated based on current data analysis</p>
+            </div>
+          </div>
+          
+          <div class="headline-card">
+            <div class="headline-number">4</div>
+            <div class="headline-content">
+              <h4 id="headlineTitle4" class="headline-title">Loading...</h4>
+              <p class="headline-description">Generated based on current data analysis</p>
+            </div>
+          </div>
+          
+          <div class="headline-card">
+            <div class="headline-number">5</div>
+            <div class="headline-content">
+              <h4 id="headlineTitle5" class="headline-title">Loading...</h4>
+              <p class="headline-description">Generated based on current data analysis</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Chat Panel -->
+    <div id="chatPanel" class="chat-panel">
+      <div class="chat-header">
+        <h3 class="chat-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Chat Assistant
+        </h3>
+        <button id="minimizeChatBtn" class="minimize-chat-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="chat-history" id="chatHistory">
+        <!-- Chat messages will be populated here -->
+      </div>
+
+    </div>
+
+    <!-- Chat Input Bar -->
+    <div id="chatInputBar" class="chat-input-bar">
+      <div class="chat-input-container">
+        <input id="chatInput" type="text" placeholder="Ask me anything about the data..." />
+        <button id="chatSendBtn" class="chat-send-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Sidebar Overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+  <!-- Feature Descriptions Modal -->
+  <div id="featureDescriptionsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Feature Descriptions</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="feature-item">
+          <h4>Pain Points</h4>
+          <p>Identifies specific pain-related issues and challenges mentioned by users in their comments.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Desires/Wishes</h4>
+          <p>Captures user expressions of what they want, hope for, or wish they had regarding pain management.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Practitioner References</h4>
+          <p>Mentions of healthcare providers, doctors, therapists, and other medical professionals.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Frustration Points</h4>
+          <p>Specific sources of frustration and anger related to pain experiences and healthcare.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Metaphor Mentions</h4>
+          <p>Creative language and metaphors users employ to describe their pain experiences.</p>
+        </div>
+        <div class="feature-item">
+          <h4>FAQs</h4>
+          <p>Common questions and concerns frequently raised by the pain community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="practitioner.js"></script>
+</body>
+</html>

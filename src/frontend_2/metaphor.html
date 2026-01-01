@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metaphor Insights</title>
+  <link rel="stylesheet" href="metaphor.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button id="mobileMenuBtn" class="mobile-menu-btn">
+          <span class="hamburger"></span>
+        </button>
+        <a href="#" class="nav-link">Insights</a>
+      </div>
+      
+      <div class="nav-center">
+        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+        <h1 class="logo">Metaphor</h1>
+      </div>
+      
+      <div class="nav-right">
+        
+        
+        <button id="settingsBtn" class="settings-btn">
+          <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <div id="settingsDropdown" class="settings-dropdown">
+          <a href="#" id="featureDescriptions">Feature Descriptions</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-layout">
+    <!-- Main Sidebar -->
+    <aside id="mainSidebar" class="sidebar main-sidebar">
+      <div class="sidebar-content">
+        <button class="sidebar-item" data-section="Reddit Scraper">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <span class="sidebar-text">Reddit Scraper</span>
+        </button>
+
+        <button class="sidebar-item" data-section="Ask me Anything">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="sidebar-text">Ask me Anything</span>
+        </button>
+
+        <button class="sidebar-item active" data-section="Insights">
+          <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+          <span class="sidebar-text">Insights</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Insights Sidebar -->
+    <aside id="insightsSidebar" class="sidebar insights-sidebar">
+  <div class="sidebar-header">
+    <h3 class="sidebar-title">Insights</h3>
+    <button id="toggleInsightsSidebar" class="toggle-sidebar-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15,18 9,12 15,6"></polyline>
+      </svg>
+    </button>
+  </div>
+  <div class="sidebar-content">
+    <button class="sidebar-item" onclick="window.location.href='painpoints.html'">
+      Pain Points
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='desire_wishes.html'">
+      Desires/Wishes
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='practitioner.html'">
+      Practitioner References
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='frustrationpoints.html'">
+      Frustration Points
+    </button>
+    <button class="sidebar-item active" onclick="window.location.href='metaphor.html'">
+      Metaphor Mentions
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='Triggersthatcausedaction.html'">
+      Triggers that caused Action
+    </button>
+    <button class="sidebar-item" onclick="window.location.href='questions.html'">
+      FAQs
+    </button>
+  </div>
+</aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search and Filter Section -->
+      <section class="search-section">
+        <div class="search-header">
+          <h2 class="section-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            Search & Filter Controls
+          </h2>
+        </div>
+        
+        <div class="search-grid">
+          <div class="input-row">
+            <div class="input-group keyword-search">
+              <label for="keywordSearch">Search Metaphors</label>
+              <input id="keywordSearch" type="text" placeholder="e.g. fog, mountain, drowning" />
+            </div>
+            <div class="button-group">
+              <button id="runKeywordSearchBtn" class="action-btn primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21 5,3"></polygon>
+                </svg>
+                Run Search
+              </button>
+              <button id="clearKeywordSearchBtn" class="action-btn secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="1,4 1,10 7,10"></polyline>
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+                Clear
+              </button>
+            </div>
+          </div>
+          
+          <div class="filter-row">
+            <div class="filter-group">
+              <label for="emotionSelect">Select Emotion</label>
+              <select id="emotionSelect" class="filter-select">
+                <option value="all">All Emotions</option>
+                <option value="frustrated">😤 Frustrated</option>
+                <option value="hopeful">😊 Hopeful</option>
+                <option value="desperate">😢 Desperate</option>
+                <option value="relieved">😌 Relieved</option>
+                <option value="anxious">😰 Anxious</option>
+                <option value="joy">😁 Joy</option>
+                <option value="anger">😡 Anger</option>
+                <option value="fear">😨 Fear</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="subredditSelect">Filter by Subreddit</label>
+              <select id="subredditSelect" class="filter-select">
+                <option value="all">All Subreddits</option>
+                <option value="r/mentalhealth">r/mentalhealth</option>
+                <option value="r/chronicillness">r/chronicillness</option>
+                <option value="r/depression">r/depression</option>
+                <option value="r/anxiety">r/anxiety</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="confidenceScoreInput">High Confidence Metaphor</label>
+              <div class="confidence-score-group">
+                <input id="confidenceScoreInput" type="range" min="0" max="1" step="0.01" value="0" />
+                <span id="confidenceScoreValue">0.00</span>
+              </div>
+            </div>
+            <div class="filter-group">
+              <label for="vividnessScoreInput">Vividness Score</label>
+              <div class="vividness-score-group">
+                <input id="vividnessScoreInput" type="range" min="0" max="1" step="0.01" value="0" />
+                <span id="vividnessScoreValue">0.00</span>
+              </div>
+            </div>
+          </div>
+
+      <!-- Metrics Section -->
+      <section class="metrics-section">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+            </div>
+            <div class="metric-content">
+              <div class="metric-value" id="totalMetaphors">--</div>
+              <div class="metric-label">Total Metaphors</div>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <div class="metric-content">
+              <div class="metric-value" id="avgVividness">--</div>
+              <div class="metric-label">Avg Vividness</div>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div class="metric-content">
+              <div class="metric-value" id="topEmotion">--</div>
+              <div class="metric-label">Top Emotion</div>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18"></path>
+                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+              </svg>
+            </div>
+            <div class="metric-content">
+              <div class="metric-value" id="weeklyChange">--</div>
+              <div class="metric-label">This Week</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts Section -->
+      <section class="charts-section">
+        <div class="chart-controls">
+          <label for="chartSelect">Select Chart:</label>
+          <select id="chartSelect" class="filter-select">
+            <option value="timeTrend">Time Trend</option>
+            <option value="emotionDistribution">Emotion Distribution</option>
+          </select>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title" id="currentChartTitle">Time Trend</h3>
+          </div>
+          <div class="chart-content">
+            <div class="chart-placeholder" id="chartPlaceholder">
+              <!-- Chart will be rendered here by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Section -->
+      <section class="data-section">
+        <div class="data-header">
+          <h3 class="data-title">
+            <svg class="title-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            Metaphor Insights Data
+          </h3>
+          <div class="data-actions">
+            <div class="data-stats" id="dataStats">
+              Showing <span id="visibleCount">235</span> of <span id="totalCount">235</span> metaphors
+            </div>
+            <button id="downloadDataBtn" class="action-btn primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Data
+            </button>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table class="data-table" id="dataTable">
+            <thead>
+              <tr>
+                <th>Metaphor Phrase</th>
+                <th>Emotion</th>
+                <th>Vividness Score</th>
+                <th>Comment</th>
+                <th>Subreddit</th>
+                <th>Created</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+
+
+    </main>
+  </div>
+
+  <!-- Mobile Sidebar Overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- Comment Side Panel -->
+  <div id="commentSidePanel" class="side-panel">
+    <div class="side-panel-header">
+      <h3>Comment Details</h3>
+      <button class="side-panel-close" id="closeCommentSidePanel">&times;</button>
+    </div>
+    <div class="side-panel-body">
+      <div class="comment-section">
+        <h4>Full Comment</h4>
+        <div id="fullCommentText" class="comment-content"></div>
+      </div>
+      <div class="metadata-section">
+        <div class="metadata-item">
+          <span class="metadata-label">Author:</span>
+          <span id="commentAuthor" class="metadata-value"></span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Subreddit:</span>
+          <span id="commentSubreddit" class="metadata-value"></span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Date:</span>
+          <span id="commentDate" class="metadata-value"></span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Upvotes:</span>
+          <span id="commentUpvotes" class="metadata-value"></span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Confidence:</span>
+          <span id="commentConfidence" class="metadata-value"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-notification">
+    <span id="toastMessage">Comment copied!</span>
+  </div>
+
+  <!-- Feature Descriptions Modal -->
+  <div id="featureDescriptionsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Feature Descriptions</h3>
+        <button class="modal-close" id="closeFeatureModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="feature-item">
+          <h4>Metaphor Analysis</h4>
+          <p>Identifies and analyzes metaphorical language used by users to describe their experiences and emotions.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Vividness Scoring</h4>
+          <p>Measures the intensity and clarity of metaphorical expressions on a scale from 0.0 to 1.0.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Emotion Mapping</h4>
+          <p>Connects metaphorical expressions to underlying emotional states and sentiment patterns.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Pattern Recognition</h4>
+          <p>Identifies recurring metaphorical themes and patterns across different user communities.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Context Analysis</h4>
+          <p>Examines the contextual usage of metaphors within broader conversation threads and topics.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Trend Tracking</h4>
+          <p>Monitors the evolution and frequency of metaphorical language over time periods.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="metaphor.js"></script>
+</body>
+</html>
+
+  <!-- Tooltip for charts -->
+  <div id="chartTooltip" class="chart-tooltip"></div>
+<!-- AIzaSyCQiEjG_c__pUxz9hWf_40jlO2rz5kSOBc -->
+ <!--  AIzaSyCxG8YOopFQszFgXGNDE9k6y79Di1pab_A   <- gemini api key -->

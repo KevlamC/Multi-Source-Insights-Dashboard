@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Insights Dashboard</title>
+    <link rel="stylesheet" href="fail.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C4CE6" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">Insights</div>
+                </div>
+                
+                <div class="nav-pills">
+                    <div class="nav-pill">
+                        <div class="nav-icon search-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <span>Reddit Scraper</span>
+                    </div>
+                    <div class="nav-pill">
+                        <div class="nav-icon ai-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <span>Ask AI</span>
+                    </div>
+                    <div class="nav-pill">
+                        <div class="nav-icon insights-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <span>Insights</span>
+                    </div>
+                    <div class="nav-pill profile-pill">
+                        <div class="nav-icon profile-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sub Navigation -->
+        <nav class="sub-nav">
+            <div class="sub-nav-content">
+                <div class="nav-links">
+                    <span class="nav-link">Pain Point</span>
+                    <span class="nav-divider">|</span>
+                    <span class="nav-link">Failed Solution</span>
+                    <span class="nav-divider">|</span>
+                    <span class="nav-link">Desired Outcome</span>
+                    <span class="nav-divider">|</span>
+                    <span class="nav-link">Metaphor</span>
+                    <span class="nav-divider">|</span>
+                    <span class="nav-link">Practitioner Reference</span>
+                    <span class="nav-divider">|</span>
+                    <span class="nav-link">Triggers Causing Action</span>
+                    <span class="nav-divider">|</span>
+                    <span class="nav-link">Cautions</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="filter-dropdowns">
+                    <div class="dropdown emotion-dropdown">
+                        <button class="dropdown-trigger" id="emotionTrigger">
+                            <span id="emotionLabel">Emotion</span>
+                            <div class="dropdown-arrow"></div>
+                        </button>
+                        <div class="dropdown-menu" id="emotionMenu">
+                            <div class="dropdown-item" data-emotion="frustration">
+                                <span>Frustration</span>
+                            </div>
+                            <div class="dropdown-item" data-emotion="sadness">
+                                <span>Sadness</span>
+                            </div>
+                            <div class="dropdown-item" data-emotion="anger">
+                                <span>Anger</span>
+                            </div>
+                            <div class="dropdown-item" data-emotion="disappointment">
+                                <span>Disappointment</span>
+                            </div>
+                            <div class="dropdown-item" data-emotion="anxiety">
+                                <span>Anxiety</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown topic-dropdown">
+                        <button class="dropdown-trigger" id="topicTrigger">
+                            <span id="topicLabel">Topic</span>
+                            <div class="dropdown-arrow"></div>
+                        </button>
+                        <div class="dropdown-menu" id="topicMenu">
+                            <div class="dropdown-item" data-topic="sleep">
+                                <span>Sleep</span>
+                            </div>
+                            <div class="dropdown-item" data-topic="fitness">
+                                <span>Fitness</span>
+                            </div>
+                            <div class="dropdown-item" data-topic="productivity">
+                                <span>Productivity</span>
+                            </div>
+                            <div class="dropdown-item" data-topic="nutrition">
+                                <span>Nutrition</span>
+                            </div>
+                            <div class="dropdown-item" data-topic="mental-health">
+                                <span>Mental Health</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-icon"></div>
+                        <input type="text" class="search-input" placeholder="Search text or regex" id="searchInput">
+                    </div>
+                </div>
+
+                <div class="filter-tags">
+                    <span class="filter-tag">😴 Can't Sleep</span>
+                    <span class="filter-tag">💥 Back Pain</span>
+                    <span class="filter-tag">🕒 No Time</span>
+                    <span class="filter-tag">💊 Side Effects</span>
+                    <span class="filter-tag">💰 Too Expensive</span>
+                </div>
+            </div>
+
+            <!-- Content Layout -->
+            <div class="content-layout">
+                <!-- Comments Table -->
+                <div class="comments-section">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <div class="header-cell comment-header">Comment</div>
+                            <div class="header-cell">Failed Solution</div>
+                            <div class="header-cell">
+                                <div>Frustration</div>
+                                <div>Phrase</div>
+                            </div>
+                            <div class="header-cell">Emotion</div>
+                            <div class="header-cell">Topic</div>
+                            <div class="header-cell">Save</div>
+                        </div>
+
+                        <div class="table-body" id="tableBody">
+                            <!-- Dynamic content will be inserted here -->
+                        </div>
+                    </div>
+
+                    <div class="load-more">
+                        <button class="load-more-btn" id="loadMoreBtn">Load more results</button>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <h3>Insight Summary</h3>
+                        <div class="sidebar-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C4CE6" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-icon">🔁</span>
+                            <span class="section-title">Top Failed Solutions</span>
+                        </div>
+                        <div class="section-content">
+                            <div class="sidebar-item">
+                                <span class="item-name">Melatonin</span>
+                                <button class="view-btn" data-view-type="solution" data-view-value="Melatonin">
+                                    <span>View</span>
+                                    <div class="arrow-icon"></div>
+                                </button>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="item-name">Therapy</span>
+                                <button class="view-btn" data-view-type="solution" data-view-value="Therapy">
+                                    <span>View</span>
+                                    <div class="arrow-icon"></div>
+                                </button>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="item-name">Supplements</span>
+                                <button class="view-btn" data-view-type="solution" data-view-value="Supplements">
+                                    <span>View</span>
+                                    <div class="arrow-icon"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-icon">😤</span>
+                            <span class="section-title">Most Common Frustrations</span>
+                        </div>
+                        <div class="section-content">
+                            <div class="sidebar-item">
+                                <span class="item-name">Still can't sleep</span>
+                                <button class="view-btn" data-view-type="frustration" data-view-value="Still can't sleep">
+                                    <span>View</span>
+                                    <div class="arrow-icon"></div>
+                                </button>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="item-name">Didn't work</span>
+                                <button class="view-btn" data-view-type="frustration" data-view-value="Didn't work">
+                                    <span>View</span>
+                                    <div class="arrow-icon"></div>
+                                </button>
+                            </div>
+                            <div class="sidebar-item">
+                                <span class="item-name">Made it worse</span>
+                                <button class="view-btn" data-view-type="frustration" data-view-value="Made it worse">
+                                    <span>View</span>
+                                    <div class="arrow-icon"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="section-header">
+                            <span class="section-title">Emotion-Topic Heatmap</span>
+                        </div>
+                        <div class="heatmap">
+                            <div class="heatmap-header">
+                                <div class="heatmap-cell"></div>
+                                <div class="heatmap-cell">Sleep</div>
+                                <div class="heatmap-cell">Productivity</div>
+                                <div class="heatmap-cell">
+                                    <div>Mental</div>
+                                    <div>Health</div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <div class="heatmap-label">Frustration</div>
+                                <div class="heatmap-cell high-intensity"></div>
+                                <div class="heatmap-cell medium-intensity"></div>
+                                <div class="heatmap-cell low-intensity"></div>
+                            </div>
+                            <div class="heatmap-row">
+                                <div class="heatmap-label">Anger</div>
+                                <div class="heatmap-cell medium-low-intensity"></div>
+                                <div class="heatmap-cell no-intensity"></div>
+                                <div class="heatmap-cell high-medium-intensity"></div>
+                            </div>
+                            <div class="heatmap-row">
+                                <div class="heatmap-label">Sadness</div>
+                                <div class="heatmap-cell medium-high-intensity"></div>
+                                <div class="heatmap-cell very-low-intensity"></div>
+                                <div class="heatmap-cell high-intensity"></div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <!-- Modal Overlay (hidden by default) -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Comments about "Melatonin"</h3>
+                    <button class="modal-close" id="modalClose">×</button>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-comment">
+                        <div class="modal-badges">
+                            <span class="emotion-badge frustration-badge">Frustration</span>
+                            <span class="topic-badge">Sleep</span>
+                        </div>
+                        <div class="modal-comment-text">
+                            <p>I've been taking melatonin for months and I still can't sleep through the night. It worked at first but now I feel like I'm immune to it. So frustrating to wake up at 3am every night.</p>
+                        </div>
+                        <div class="modal-details">
+                            <span class="detail-item">Failed solution: Melatonin</span>
+                            <span class="detail-item">Frustration: Still can't sleep</span>
+                        </div>
+                        <div class="save-icon modal-save"></div>
+                    </div>
+                    
+                    <div class="modal-comment">
+                        <div class="modal-badges">
+                            <span class="emotion-badge disappointment-badge">Disappointment</span>
+                            <span class="topic-badge">Sleep</span>
+                        </div>
+                        <div class="modal-comment-text">
+                            <p>I tried melatonin gummies, pills, and even the liquid drops. Nothing helps me stay asleep for more than 4 hours. It's like my body just doesn't respond to it anymore.</p>
+                        </div>
+                        <div class="modal-details">
+                            <span class="detail-item">Failed solution: Melatonin</span>
+                            <span class="detail-item">Frustration: Still can't sleep</span>
+                        </div>
+                        <div class="save-icon modal-save"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Comment Popup -->
+        <div class="comment-popup" id="commentPopup">
+            <div class="popup-header">
+                <h3 class="popup-title" id="popupTitle">Comments</h3>
+                <button class="popup-close" id="popupClose">×</button>
+            </div>
+            <div class="popup-content" id="popupContent">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="fail.js"></script>
+</body>
+</html>

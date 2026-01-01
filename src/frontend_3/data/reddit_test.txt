@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "author": "local_user",
+    "subreddit": "local_data",
+    "comment": "This is a comment loaded from a local .txt file.",
+    "votes": 50,
+    "emotion": "positive",
+    "timestamp": "now"
+  },
+  {
+    "id": 2,
+    "author": "fitness_journey",
+    "subreddit": "fitness",
+    "comment": "My doctor recommended physical therapy, but I'm not seeing results after 6 weeks. Has anyone found specific exercises that actually work for lower back issues?",
+    "votes": 23,
+    "emotion": "negative",
+    "timestamp": "4 hours ago"
+  },
+  {
+    "id": 3,
+    "author": "another_local_user",
+    "subreddit": "local_data",
+    "comment": "Another comment from the local file.",
+    "votes": 25,
+    "emotion": "neutral",
+    "timestamp": "1 minute ago"
+  }
+]

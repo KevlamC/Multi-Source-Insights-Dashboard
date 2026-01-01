@@ -1,0 +1,25 @@
+# Environment Variables
+backend/.env
+
+# Virtual Environment
+**venv/**            
+.venv/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node/Vite
+node_modules/
+dist/
+.vite/
+
+# OS cruft
+.DS_Store
+
+# Data dumps
+*.csv.gz
+
+backend/reddit_tokens.json

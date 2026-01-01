@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triggers that Caused Action</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <div class="header-container">
+      <div class="header-content">
+        <h1>Triggers that Caused Action</h1>
+        <p>Real stories, real turning points. What pushed people to finally try something new for their health?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <div class="grid-container">
+      <!-- Left Column -->
+      <div class="left-column">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card stat-card-red">
+            <h3>Most Common Trigger</h3>
+            <p>Back-pain</p>
+          </div>
+          <div class="stat-card stat-card-purple">
+            <h3>Percentage of Triggers that are Back-pain</h3>
+            <p>29%</p>
+          </div>
+          <div class="stat-card stat-card-blue">
+            <h3>Total Amount of Triggers</h3>
+            <p id="total-triggers">50</p>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-section">
+          <div class="filter-row">
+            <button id="trigger-filter" class="filter-button">
+              Trigger Type
+            </button>
+            <button id="subreddit-filter" class="filter-button">
+              Subreddits
+            </button>
+            <button id="persona-filter" class="filter-button">
+              Persona
+            </button>
+          </div>
+          <button id="filter-toggle" class="filter-toggle-button">
+            <i data-lucide="filter"></i>
+            <span>Filter</span>
+          </button>
+        </div>
+
+        <!-- Full Comment Section -->
+        <div class="comment-section">
+          <h4>Full comment</h4>
+          <p id="current-comment"></p>
+          <div class="comment-meta">
+            <div class="comment-info">
+              <span id="comment-subreddit"></span>
+              <span id="comment-username"></span>
+            </div>
+            <div class="comment-date">
+              <i data-lucide="clock"></i>
+              <span id="comment-date"></span>
+            </div>
+          </div>
+          <div class="comment-nav">
+            <button id="next-example">Next example</button>
+          </div>
+        </div>
+
+        <!-- Generated Comments Display -->
+        <div id="comments-container" class="generated-comments hidden">
+          <h4>Generated Comments (<span id="comments-count">0</span>)</h4>
+          <div id="comments-list" class="comments-list"></div>
+        </div>
+
+        <!-- Grey Rectangles -->
+        <div class="grey-rectangles">
+          <div class="rectangle-container">
+            <div class="rectangle"></div>
+            <p>I couldn't play with my kids, so I looked for alternatives...</p>
+          </div>
+          <div class="rectangle-container">
+            <div class="rectangle rectangle-medium"></div>
+            <p>After my 3rd flare-up, I quit...</p>
+          </div>
+          <div class="rectangle-container">
+            <div class="rectangle rectangle-large"></div>
+            <p>I was so sleep deprived that I couldn't function at work...</p>
+          </div>
+        </div>
+
+        <!-- Red Chat Bot Button -->
+        <button class="chat-button chat-button-red">
+          Want more info? Ask our Chat Bot!
+        </button>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <!-- Generate Data Button -->
+        <div class="generate-button-container">
+          <button id="generate-data" class="generate-button">
+            <i data-lucide="search"></i>
+            <span>Generate Data</span>
+          </button>
+        </div>
+
+        <!-- Marketing Section -->
+        <div class="marketing-section">
+          <div class="marketing-header">
+            <i data-lucide="lightbulb"></i>
+            <h3>How to Use These Triggers for Marketing</h3>
+            <span>(AI Hooks)</span>
+          </div>
+        </div>
+
+        <!-- Trigger Examples -->
+        <div id="trigger-examples" class="trigger-examples"></div>
+
+        <!-- Trigger Clusters -->
+        <div class="trigger-clusters-section">
+          <h3>Trigger Cluster</h3>
+          <p>List of the triggers being discussed and their share of the total comments</p>
+          <div id="trigger-clusters" class="clusters-list"></div>
+        </div>
+
+        <!-- Green Chat Bot Button -->
+        <button class="chat-button chat-button-green">
+          Want more info? Ask our Chat Bot!
+        </button>
+
+        <!-- Large Grey Rectangle -->
+        <div class="large-rectangle-container">
+          <div class="large-rectangle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Modal -->
+  <div id="filter-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-container">
+          <i data-lucide="filter"></i>
+          <h3 id="modal-title">Filter</h3>
+        </div>
+        <button id="close-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div id="modal-content">
+          <p id="modal-message">Please select an option</p>
+          <p id="modal-options" class="modal-options"></p>
+          <input
+            type="text"
+            id="filter-input"
+            placeholder="Enter filter value..."
+          />
+        </div>
+        <div class="modal-actions">
+          <button id="modal-ok">OK</button>
+          <button id="modal-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
